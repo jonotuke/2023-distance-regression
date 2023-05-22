@@ -1,0 +1,79 @@
+---
+title: Three point example
+author: Jono Tuke
+date: today
+date-format: long
+format: 
+  html: 
+    self-contained: true
+    df-print: tibble
+editor_options: 
+  chunk_output_type: console
+execute: 
+  warning: false
+  message: false
+---
+
+# Get libs
+
+```{r, setup}
+pacman::p_load(tidyverse)
+fs::dir_ls(here::here("r-code")) |> walk(source)
+```
+
+# Set up points
+
+```{r}
+x <- list(
+  x1 = c(0,0),
+  x2 = c(1,0),
+  x3 = c(0,1)
+)
+a <- list(
+  a1 = c(0.1,0.1), 
+  a2 = c(0,0), 
+  a3 = c(-0.1,-0.1)
+)
+```
+
+Calculate Y. 
+
+```{r}
+y <- list(
+  y1 = 1 + 1 * x$x1 + a$a1,
+  y2 = 1 + 1 * x$x2 + a$a2,
+  y3 = 1 + 1 * x$x3 + a$a3
+)
+y
+```
+
+So we have the distances between the x points and also those computed by the linear transform of the x to give the y points. 
+
+```{r}
+Dij <- get_dist(x)
+Dij
+Gij <- get_dist(y)
+Gij
+```
+
+Now, we will compare this to the model
+
+$$
+\boldsymbol{G} = X\boldsymbol{\beta} + Z\boldsymbol{b} + \boldsymbol{\varepsilon}
+$$
+
+So we have
+
+```{r}
+Z <- get_Z(x)
+Z
+b <- a |> list_c()
+b
+Dij * 1 + Z %*% b
+```
+
+So the approximation works well. 
+
+
+
+
