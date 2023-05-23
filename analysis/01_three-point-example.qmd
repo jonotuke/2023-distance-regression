@@ -36,7 +36,7 @@ a <- list(
 )
 ```
 
-Calculate Y. 
+Calculate Y.
 
 ```{r}
 y <- list(
@@ -47,7 +47,7 @@ y <- list(
 y
 ```
 
-So we have the distances between the x points and also those computed by the linear transform of the x to give the y points. 
+So we have the distances between the x points and also those computed by the linear transform of the x to give the y points.
 
 ```{r}
 Dij <- get_dist(x)
@@ -72,8 +72,4 @@ b
 Dij * 1 + Z %*% b
 ```
 
-So the approximation works well. 
-
-
-
-
+So the approximation works well.
