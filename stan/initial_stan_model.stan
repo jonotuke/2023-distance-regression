@@ -27,11 +27,13 @@ transformed parameters {
 model {
   vector[2] alpha_intercept;
   tau ~ cauchy(0, 1);
-  Omega ~ lkj_corr(2);
+  Omega ~ lkj_corr(1);
   alpha_intercept = rep_vector(0,2);
+  sigma ~ normal(0,1);
+  beta_1 ~ normal(0,1);
 
   for(i in 1:n_obs){
-    alpha[i] ~ multi_normal(alpha_intercept, quad_form_diag(Omega, tau));
+    alpha[i,] ~ multi_normal(alpha_intercept, quad_form_diag(Omega, tau));
   }
   if(sample_prior == 0){
     G ~ normal(mu, sigma);
