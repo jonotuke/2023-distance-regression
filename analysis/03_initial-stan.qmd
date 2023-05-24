@@ -1,0 +1,44 @@
+---
+title: "LK_initial_attempt"
+format: html
+editor: visual
+---
+
+```{r}
+library(ade4) #for the mantel test
+```
+
+```{r}
+data_for_stan <- 
+  list(
+       n_obs  =3, 
+       G = c(0.91,0.82,1.42),
+       X = c(1,1,sqrt(2)),
+       Z = rbind(c(-1,0,1,0,0,0),
+              c(0,-1,0,0,0,1),
+              c(0,0,1/sqrt(2),-1/sqrt(2), -1/sqrt(2),1/sqrt(2))),
+      sample_prior = 0)
+```
+
+```{r}
+library(cmdstanr)
+initial_file <- file.path(here::here("stan", "initial_stan_model.stan"))
+initial_model <- cmdstan_model(initial_file)
+
+initial_fit <- initial_model$sample(
+  data = data_for_stan,
+  seed = 37733,
+  chains = 4,
+  parallel_chains = 4,
+  adapt_delta = .95
+)
+
+```
+
+To dos:
+
+-   Cholesky formulation for numerical stability (https://mc-stan.org/docs/stan-users-guide/multivariate-hierarchical-priors.html)
+
+-   Non centered formulation for sampling stability
+
+-   prior predictive checks
