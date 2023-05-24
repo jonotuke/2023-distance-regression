@@ -23,7 +23,31 @@ pacman::p_load(tidyverse)
 We have two possible ways to get the distances between the $y_i$ points. In the first way, we translate the $x_i$ points with noise: $a_i$, and then calculate the distances between the $x_i$, denoted $D_{ij}$ and then the distances between the $y_i$, denoted $G_{ij}$. In the second method, we use the mixed effects model:
 
 $$
-\E[G_{ij}] = \beta D_{ij} + Z\boldsymbol{a}, 
+\hat{G}_{ij} = \E[G_{ij}] = \beta D_{ij} + Z\boldsymbol{a}, 
 $$
 
-that is based on the Taylor expansion.
+that is based on the Taylor series expansion.
+
+We will simulate both method and compare the results. For the simulations we consider the following parameters
+
+$$
+X_i \sim U(0,10) \times U(0,10), 
+$$
+
+$$
+\beta = 1, 
+$$
+$$
+a_i \sim N_2(\boldsymbol{0}, \Sigma)
+$$
+
+where
+
+$$
+\Sigma = 
+
+\begin{bmatrix}
+\sigma^2_a & 0\\
+0 & \sigma^2_a
+\end{bmatrix}
+$$

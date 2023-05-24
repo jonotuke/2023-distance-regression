@@ -11,16 +11,17 @@ get_dist <- function(pts){
   }
   dist
 }
-
-pts <- list(
-  x1 = c(0,0),
-  x2 = c(1,0),
-  x3 = c(0,1)
-)
-get_dist(pts)
-
-pts <- tibble(
-  c(0,1,0),
-  c(0,0,1)
-)
-split(pts, seq(3)) |> get_dist()
+get_dist_df <- function(df){
+  split(df, seq(nrow(df))) |> get_dist()
+}
+# pts <- list(
+#   x1 = c(0,0),
+#   x2 = c(1,0),
+#   x3 = c(0,1)
+# )
+# get_dist(pts)
+# pts <- tibble(
+#   c(0,1,0),
+#   c(0,0,1)
+# )
+# get_dist_df(pts)
