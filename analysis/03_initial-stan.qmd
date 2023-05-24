@@ -2,6 +2,8 @@
 title: "LK_initial_attempt"
 format: html
 editor: visual
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r}
@@ -34,6 +36,7 @@ initial_fit <- initial_model$sample(
 
 print(initial_fit, max_rows = 24)
 ```
+
 ## Cholesky and non-centered form
 
 ```{r}
