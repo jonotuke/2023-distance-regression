@@ -162,14 +162,14 @@ To disable this check set option or environment variable CMDSTANR_NO_VER_CHECK=T
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>initial_file <span class="ot">&lt;-</span> <span class="fu">file.path</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"stan"</span>, <span class="st">"initial_stan_model.stan"</span>))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>initial_model <span class="ot">&lt;-</span> <span class="fu">cmdstan_model</span>(initial_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 12, column 2: Declaration
+<pre><code>Warning in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 12, column 2: Declaration
     of arrays by placing brackets after a variable name is deprecated and
     will be removed in Stan 2.32.0. Instead use the array keyword before the
     type. This can be changed automatically using the auto-format flag to
     stanc</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>In file included from /var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.hpp:1:
+<pre><code>In file included from /var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.hpp:1:
 In file included from /Users/a1193023/.cmdstan/cmdstan-2.31.0/stan/src/stan/model/model_header.hpp:4:
 In file included from /Users/a1193023/.cmdstan/cmdstan-2.31.0/stan/lib/stan_math/stan/math.hpp:19:
 In file included from /Users/a1193023/.cmdstan/cmdstan-2.31.0/stan/lib/stan_math/stan/math/rev.hpp:10:
@@ -184,10 +184,10 @@ In file included from /Users/a1193023/.cmdstan/cmdstan-2.31.0/stan/lib/stan_math
 In file included from /Users/a1193023/.cmdstan/cmdstan-2.31.0/stan/lib/stan_math/lib/boost_1.78.0/boost/function/function_base.hpp:21:
 In file included from /Users/a1193023/.cmdstan/cmdstan-2.31.0/stan/lib/stan_math/lib/boost_1.78.0/boost/type_index.hpp:29:
 In file included from /Users/a1193023/.cmdstan/cmdstan-2.31.0/stan/lib/stan_math/lib/boost_1.78.0/boost/type_index/stl_type_index.hpp:47:
-/Users/a1193023/.cmdstan/cmdstan-2.31.0/stan/lib/stan_math/lib/boost_1.78.0/boost/container_hash/hash.hpp:132:33: warning: 'unary_function&lt;const std::error_category *, unsigned lon</code></pre>
+/Users/a1193023/.cmdstan/cmdstan-2.31.0/stan/lib/stan_math/lib/boost_1.78.0/boost/container_hash/hash.hpp:132:33: warning: 'unary_function&lt;const std::error_category *, unsigned lo</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>g&gt;' is deprecated [-Wdeprecated-declarations]
+<pre><code>ng&gt;' is deprecated [-Wdeprecated-declarations]
         struct hash_base : std::unary_function&lt;T, std::size_t&gt; {};
                                 ^
 /Users/a1193023/.cmdstan/cmdstan-2.31.0/stan/lib/stan_math/lib/boost_1.78.0/boost/container_hash/hash.hpp:692:18: note: in instantiation of template class 'boost::hash_detail::hash_base&lt;const std::error_category *&gt;' requested here
@@ -234,7 +234,7 @@ Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) </code></pre>
 <pre><code>Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 1 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 30, column 2 to column 22)</code></pre>
+<pre><code>Chain 1 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 30, column 2 to column 22)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -249,7 +249,7 @@ Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) </code></pre>
 <pre><code>Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 1 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = 2.25026e+10, but Covariance matrix[2,1] = 2.25026e+10 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 1 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = 2.25026e+10, but Covariance matrix[2,1] = 2.25026e+10 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -264,7 +264,7 @@ Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) </code></pre>
 <pre><code>Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 1 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -8.1967e+09, but Covariance matrix[2,1] = -8.1967e+09 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 1 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -8.1967e+09, but Covariance matrix[2,1] = -8.1967e+09 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -279,7 +279,22 @@ Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) </code></pre>
 <pre><code>Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 1 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -2.0175e+19, but Covariance matrix[2,1] = -2.0175e+19 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 1 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -2.0175e+19, but Covariance matrix[2,1] = -2.0175e+19 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Chain 1 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Chain 1 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Chain 1 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -1.39071e+31, but Covariance matrix[2,1] = -1.39071e+31 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -308,7 +323,7 @@ Chain 3 Iteration:  400 / 2000 [ 20%]  (Warmup) </code></pre>
 <pre><code>Chain 3 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 3 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 30, column 2 to column 22)</code></pre>
+<pre><code>Chain 3 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 30, column 2 to column 22)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 3 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -323,7 +338,7 @@ Chain 3 Iteration:  400 / 2000 [ 20%]  (Warmup) </code></pre>
 <pre><code>Chain 3 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 3 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 30, column 2 to column 22)</code></pre>
+<pre><code>Chain 3 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 30, column 2 to column 22)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 3 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -338,7 +353,7 @@ Chain 3 Iteration:  400 / 2000 [ 20%]  (Warmup) </code></pre>
 <pre><code>Chain 3 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 3 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 30, column 2 to column 22)</code></pre>
+<pre><code>Chain 3 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 30, column 2 to column 22)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 3 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -353,7 +368,7 @@ Chain 3 Iteration:  400 / 2000 [ 20%]  (Warmup) </code></pre>
 <pre><code>Chain 3 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 3 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 30, column 2 to column 22)</code></pre>
+<pre><code>Chain 3 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 30, column 2 to column 22)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 3 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -369,13 +384,14 @@ Chain 3 Iteration:  400 / 2000 [ 20%]  (Warmup) </code></pre>
 Chain 4 Iteration:  100 / 2000 [  5%]  (Warmup) 
 Chain 4 Iteration:  200 / 2000 [ 10%]  (Warmup) 
 Chain 4 Iteration:  300 / 2000 [ 15%]  (Warmup) 
-Chain 4 Iteration:  400 / 2000 [ 20%]  (Warmup) </code></pre>
+Chain 4 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 4 Iteration:  500 / 2000 [ 25%]  (Warmup) </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 4 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 4 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 30, column 2 to column 22)</code></pre>
+<pre><code>Chain 4 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 30, column 2 to column 22)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 4 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -390,7 +406,7 @@ Chain 4 Iteration:  400 / 2000 [ 20%]  (Warmup) </code></pre>
 <pre><code>Chain 4 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 4 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 30, column 2 to column 22)</code></pre>
+<pre><code>Chain 4 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 30, column 2 to column 22)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 4 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -405,7 +421,7 @@ Chain 4 Iteration:  400 / 2000 [ 20%]  (Warmup) </code></pre>
 <pre><code>Chain 4 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 4 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 30, column 2 to column 22)</code></pre>
+<pre><code>Chain 4 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 30, column 2 to column 22)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 4 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -420,7 +436,7 @@ Chain 4 Iteration:  400 / 2000 [ 20%]  (Warmup) </code></pre>
 <pre><code>Chain 4 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 4 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 30, column 2 to column 22)</code></pre>
+<pre><code>Chain 4 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 30, column 2 to column 22)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 4 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -435,7 +451,7 @@ Chain 4 Iteration:  400 / 2000 [ 20%]  (Warmup) </code></pre>
 <pre><code>Chain 4 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 4 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 30, column 2 to column 22)</code></pre>
+<pre><code>Chain 4 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 30, column 2 to column 22)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 4 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -450,7 +466,7 @@ Chain 4 Iteration:  400 / 2000 [ 20%]  (Warmup) </code></pre>
 <pre><code>Chain 4 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 4 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 30, column 2 to column 22)</code></pre>
+<pre><code>Chain 4 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 30, column 2 to column 22)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 4 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -465,7 +481,7 @@ Chain 4 Iteration:  400 / 2000 [ 20%]  (Warmup) </code></pre>
 <pre><code>Chain 4 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 4 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 30, column 2 to column 22)</code></pre>
+<pre><code>Chain 4 Exception: lkj_corr_lpdf: Correlation matrix is not positive definite. (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 30, column 2 to column 22)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 4 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -490,7 +506,7 @@ Chain 1 Iteration: 1200 / 2000 [ 60%]  (Sampling) </code></pre>
 <pre><code>Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 1 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -1.39071e+31, but Covariance matrix[2,1] = -1.39071e+31 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 1 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = 6.45588e+10, but Covariance matrix[2,1] = 6.45588e+10 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -505,22 +521,7 @@ Chain 1 Iteration: 1200 / 2000 [ 60%]  (Sampling) </code></pre>
 <pre><code>Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 1 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = 6.45588e+10, but Covariance matrix[2,1] = 6.45588e+10 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Chain 1 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Chain 1 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Chain 1 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -2.13574e+08, but Covariance matrix[2,1] = -2.13574e+08 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 1 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -2.13574e+08, but Covariance matrix[2,1] = -2.13574e+08 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -538,13 +539,14 @@ Chain 2 Iteration:  900 / 2000 [ 45%]  (Warmup)
 Chain 2 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
 Chain 2 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
 Chain 2 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
-Chain 2 Iteration: 1200 / 2000 [ 60%]  (Sampling) </code></pre>
+Chain 2 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 2 Iteration: 1300 / 2000 [ 65%]  (Sampling) </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 2 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 2 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -2.48188e+08, but Covariance matrix[2,1] = -2.48188e+08 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 2 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -2.48188e+08, but Covariance matrix[2,1] = -2.48188e+08 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 2 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -559,7 +561,22 @@ Chain 2 Iteration: 1200 / 2000 [ 60%]  (Sampling) </code></pre>
 <pre><code>Chain 2 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 2 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = 8.13927e+11, but Covariance matrix[2,1] = 8.13927e+11 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 2 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = 8.13927e+11, but Covariance matrix[2,1] = 8.13927e+11 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Chain 2 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Chain 2 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Chain 2 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Chain 2 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Chain 2 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -5.98113e+08, but Covariance matrix[2,1] = -5.98113e+08 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 2 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -581,7 +598,7 @@ Chain 3 Iteration:  900 / 2000 [ 45%]  (Warmup) </code></pre>
 <pre><code>Chain 3 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 3 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = 1.09495e+09, but Covariance matrix[2,1] = 1.09495e+09 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 3 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = 1.09495e+09, but Covariance matrix[2,1] = 1.09495e+09 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 3 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -593,19 +610,19 @@ Chain 3 Iteration:  900 / 2000 [ 45%]  (Warmup) </code></pre>
 <pre><code>Chain 3 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Chain 4 Iteration:  500 / 2000 [ 25%]  (Warmup) 
-Chain 4 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+<pre><code>Chain 4 Iteration:  600 / 2000 [ 30%]  (Warmup) 
 Chain 4 Iteration:  700 / 2000 [ 35%]  (Warmup) 
 Chain 4 Iteration:  800 / 2000 [ 40%]  (Warmup) 
 Chain 4 Iteration:  900 / 2000 [ 45%]  (Warmup) 
 Chain 4 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
-Chain 4 Iteration: 1001 / 2000 [ 50%]  (Sampling) </code></pre>
+Chain 4 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 4 Iteration: 1100 / 2000 [ 55%]  (Sampling) </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 4 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 4 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -2.61189e+09, but Covariance matrix[2,1] = -2.61189e+09 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 4 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -2.61189e+09, but Covariance matrix[2,1] = -2.61189e+09 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 4 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -621,18 +638,18 @@ Chain 4 Iteration: 1001 / 2000 [ 50%]  (Sampling) </code></pre>
 Chain 1 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
 Chain 1 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
 Chain 1 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
-Chain 2 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
 Chain 2 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
 Chain 2 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
 Chain 2 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
 Chain 2 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
-Chain 2 Iteration: 1800 / 2000 [ 90%]  (Sampling) </code></pre>
+Chain 2 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 2 Iteration: 1900 / 2000 [ 95%]  (Sampling) </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 2 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 2 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -5.98113e+08, but Covariance matrix[2,1] = -5.98113e+08 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 2 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = 1.57495e+09, but Covariance matrix[2,1] = 1.57495e+09 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 2 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -651,18 +668,18 @@ Chain 3 Iteration: 1200 / 2000 [ 60%]  (Sampling)
 Chain 3 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
 Chain 3 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
 Chain 3 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
-Chain 4 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
 Chain 4 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
 Chain 4 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
 Chain 4 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
 Chain 4 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
-Chain 4 Iteration: 1600 / 2000 [ 80%]  (Sampling) </code></pre>
+Chain 4 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 4 Iteration: 1700 / 2000 [ 85%]  (Sampling) </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 4 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 4 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -4.2883e+08, but Covariance matrix[2,1] = -4.2883e+08 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 4 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -4.2883e+08, but Covariance matrix[2,1] = -4.2883e+08 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 4 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -677,7 +694,7 @@ Chain 4 Iteration: 1600 / 2000 [ 80%]  (Sampling) </code></pre>
 <pre><code>Chain 4 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 4 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -5.50455e+08, but Covariance matrix[2,1] = -5.50455e+08 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 4 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -5.50455e+08, but Covariance matrix[2,1] = -5.50455e+08 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 4 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -692,7 +709,7 @@ Chain 4 Iteration: 1600 / 2000 [ 80%]  (Sampling) </code></pre>
 <pre><code>Chain 4 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 4 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -1.49352e+09, but Covariance matrix[2,1] = -1.49352e+09 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 4 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -1.49352e+09, but Covariance matrix[2,1] = -1.49352e+09 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 4 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -708,26 +725,8 @@ Chain 4 Iteration: 1600 / 2000 [ 80%]  (Sampling) </code></pre>
 Chain 1 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
 Chain 1 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
 Chain 1 Iteration: 2000 / 2000 [100%]  (Sampling) 
-Chain 2 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
-Chain 2 Iteration: 2000 / 2000 [100%]  (Sampling) </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Chain 2 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Chain 2 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = 1.57495e+09, but Covariance matrix[2,1] = 1.57495e+09 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Chain 2 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Chain 2 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Chain 2 </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Chain 3 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 2 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 3 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
 Chain 3 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
 Chain 3 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
 Chain 3 Iteration: 1900 / 2000 [ 95%]  (Sampling) </code></pre>
@@ -736,7 +735,7 @@ Chain 3 Iteration: 1900 / 2000 [ 95%]  (Sampling) </code></pre>
 <pre><code>Chain 3 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 3 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -7.81731e+09, but Covariance matrix[2,1] = -7.81731e+09 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 3 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -7.81731e+09, but Covariance matrix[2,1] = -7.81731e+09 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 3 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -748,8 +747,7 @@ Chain 3 Iteration: 1900 / 2000 [ 95%]  (Sampling) </code></pre>
 <pre><code>Chain 3 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Chain 4 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
-Chain 4 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+<pre><code>Chain 4 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
 Chain 4 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
 Chain 4 Iteration: 2000 / 2000 [100%]  (Sampling) </code></pre>
 </div>
@@ -757,7 +755,7 @@ Chain 4 Iteration: 2000 / 2000 [100%]  (Sampling) </code></pre>
 <pre><code>Chain 4 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 4 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -4.05691e+11, but Covariance matrix[2,1] = -4.05691e+11 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 4 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = -4.05691e+11, but Covariance matrix[2,1] = -4.05691e+11 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 4 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -769,7 +767,7 @@ Chain 4 Iteration: 2000 / 2000 [100%]  (Sampling) </code></pre>
 <pre><code>Chain 4 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Chain 1 finished in 0.5 seconds.
+<pre><code>Chain 1 finished in 0.4 seconds.
 Chain 2 finished in 0.4 seconds.
 Chain 4 finished in 0.4 seconds.
 Chain 3 Iteration: 2000 / 2000 [100%]  (Sampling) </code></pre>
@@ -778,7 +776,7 @@ Chain 3 Iteration: 2000 / 2000 [100%]  (Sampling) </code></pre>
 <pre><code>Chain 3 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Chain 3 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = 1.26346e+08, but Covariance matrix[2,1] = 1.26346e+08 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/RtmppJMcm4/model-13a69a00cc25.stan', line 36, column 4 to column 74)</code></pre>
+<pre><code>Chain 3 Exception: multi_normal_lpdf: Covariance matrix is not symmetric. Covariance matrix[1,2] = 1.26346e+08, but Covariance matrix[2,1] = 1.26346e+08 (in '/var/folders/t6/_6w5nw8s1yncpyh9dkxhh4v40000gq/T/Rtmps4Wx95/model-1494f1a0047b5.stan', line 36, column 4 to column 74)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Chain 3 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</code></pre>
@@ -800,7 +798,7 @@ Total execution time: 0.6 seconds.</code></pre>
 <pre><code>Warning: 176 of 4000 (4.0%) transitions ended with a divergence.
 See https://mc-stan.org/misc/warnings for details.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb182"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb182-1"><a href="#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(initial_fit, <span class="at">max_rows =</span> <span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(initial_fit, <span class="at">max_rows =</span> <span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: NAs introduced by coercion</code></pre>
 </div>
@@ -835,12 +833,214 @@ See https://mc-stan.org/misc/warnings for details.</code></pre>
  mu[3]       1.31   1.37 0.54 0.28  0.44 2.00 1.01     1997     1116</code></pre>
 </div>
 </div>
+<section id="cholesky-and-non-centered-form" class="level2">
+<h2 class="anchored" data-anchor-id="cholesky-and-non-centered-form">Cholesky and non-centered form</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb185"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb185-1"><a href="#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cmdstanr)</span>
+<span id="cb185-2"><a href="#cb185-2" aria-hidden="true" tabindex="-1"></a>initial_file <span class="ot">&lt;-</span> <span class="fu">file.path</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"stan"</span>, <span class="st">"cholesky_initial_model.stan"</span>))</span>
+<span id="cb185-3"><a href="#cb185-3" aria-hidden="true" tabindex="-1"></a>initial_model <span class="ot">&lt;-</span> <span class="fu">cmdstan_model</span>(initial_file)</span>
+<span id="cb185-4"><a href="#cb185-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb185-5"><a href="#cb185-5" aria-hidden="true" tabindex="-1"></a>initial_fit <span class="ot">&lt;-</span> initial_model<span class="sc">$</span><span class="fu">sample</span>(</span>
+<span id="cb185-6"><a href="#cb185-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> data_for_stan,</span>
+<span id="cb185-7"><a href="#cb185-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">seed =</span> <span class="dv">37733</span>,</span>
+<span id="cb185-8"><a href="#cb185-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">chains =</span> <span class="dv">4</span>,</span>
+<span id="cb185-9"><a href="#cb185-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">parallel_chains =</span> <span class="dv">4</span></span>
+<span id="cb185-10"><a href="#cb185-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Running MCMC with 4 parallel chains...
+
+Chain 1 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 1 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 1 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 1 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 1 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 1 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 1 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 1 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 1 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 2 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 2 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 2 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 2 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 2 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 2 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 2 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 2 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 2 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 3 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 3 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 3 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 3 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 3 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 3 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 3 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 3 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 3 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 3 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 4 Iteration:    1 / 2000 [  0%]  (Warmup) 
+Chain 4 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 4 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 4 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 4 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 4 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 4 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 4 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 4 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 4 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 1 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 1 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 1 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 1 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 1 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 1 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 1 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 2 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 2 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 2 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 2 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 2 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 3 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 3 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 3 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 3 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 3 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 3 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 3 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 3 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 3 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 3 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 4 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 4 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 4 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 4 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 4 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 4 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 4 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 4 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 4 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 4 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 4 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 1 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 1 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 1 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 1 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 1 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 2 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 2 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 2 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 3 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 3 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 4 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 1 finished in 0.3 seconds.
+Chain 3 finished in 0.2 seconds.
+Chain 4 finished in 0.2 seconds.
+Chain 2 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 2 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 2 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 2 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 2 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 2 finished in 0.5 seconds.
+
+All 4 chains finished successfully.
+Mean chain execution time: 0.3 seconds.
+Total execution time: 0.6 seconds.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: 94 of 4000 (2.0%) transitions ended with a divergence.
+See https://mc-stan.org/misc/warnings for details.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb188"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb188-1"><a href="#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(initial_fit, <span class="at">max_rows =</span> <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: NAs introduced by coercion
+
+Warning: NAs introduced by coercion</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             variable  mean median   sd  mad     q5   q95 rhat ess_bulk
+ lp__                 -5.67  -5.45 2.95 2.81 -10.84 -1.19 1.01      758
+ beta_1                0.76   0.83 0.45 0.31  -0.07  1.39 1.00     1683
+ sigma                 0.48   0.36 0.39 0.32   0.07  1.28 1.00      831
+ z[1,1]                0.00  -0.01 0.82 0.81  -1.35  1.33 1.00     2528
+ z[2,1]                0.00   0.00 0.89 0.88  -1.47  1.47 1.00     2545
+ z[1,2]                0.16   0.17 0.84 0.84  -1.23  1.56 1.00     2284
+ z[2,2]               -0.13  -0.14 0.97 0.96  -1.75  1.50 1.00     2259
+ z[1,3]               -0.18  -0.18 0.89 0.88  -1.64  1.29 1.00     2753
+ z[2,3]                0.06   0.06 0.90 0.91  -1.41  1.53 1.00     2755
+ L_Omega[1,1]          1.00   1.00 0.00 0.00   1.00  1.00   NA       NA
+ L_Omega[2,1]          0.00   0.00 0.46 0.53  -0.74  0.75 1.00     2947
+ L_Omega[1,2]          0.00   0.00 0.00 0.00   0.00  0.00   NA       NA
+ L_Omega[2,2]          0.88   0.93 0.15 0.09   0.55  1.00 1.00     1712
+ tau[1]                0.52   0.33 0.71 0.33   0.03  1.56 1.00     1544
+ tau[2]                0.52   0.32 0.65 0.33   0.03  1.60 1.00     1637
+ b[1]                 -0.01   0.00 0.55 0.22  -0.81  0.70 1.00     2492
+ b[2]                  0.00   0.00 0.54 0.22  -0.78  0.76 1.00     2062
+ b[3]                  0.08   0.03 0.59 0.24  -0.69  0.92 1.00     2264
+ b[4]                 -0.09  -0.02 0.60 0.25  -1.05  0.74 1.00     2020
+ b[5]                 -0.10  -0.03 0.62 0.26  -1.03  0.62 1.00     2543
+ b[6]                  0.04   0.01 0.56 0.23  -0.65  0.91 1.00     2389
+ mu[1]                 0.86   0.89 0.43 0.26   0.09  1.50 1.00     3714
+ mu[2]                 0.81   0.84 0.44 0.26   0.07  1.42 1.00     2942
+ mu[3]                 1.30   1.37 0.48 0.29   0.45  1.98 1.00     3764
+ alpha[1,1]           -0.01   0.00 0.55 0.22  -0.81  0.70 1.00     2492
+ alpha[2,1]            0.00   0.00 0.54 0.22  -0.78  0.76 1.00     2062
+ alpha[1,2]            0.08   0.03 0.59 0.24  -0.69  0.92 1.00     2264
+ alpha[2,2]           -0.09  -0.02 0.60 0.25  -1.05  0.74 1.00     2020
+ alpha[1,3]           -0.10  -0.03 0.62 0.26  -1.03  0.62 1.00     2543
+ alpha[2,3]            0.04   0.01 0.56 0.23  -0.65  0.91 1.00     2389
+ alpha_intercept[1,1]  0.00   0.00 0.00 0.00   0.00  0.00   NA       NA
+ alpha_intercept[2,1]  0.00   0.00 0.00 0.00   0.00  0.00   NA       NA
+ alpha_intercept[1,2]  0.00   0.00 0.00 0.00   0.00  0.00   NA       NA
+ alpha_intercept[2,2]  0.00   0.00 0.00 0.00   0.00  0.00   NA       NA
+ alpha_intercept[1,3]  0.00   0.00 0.00 0.00   0.00  0.00   NA       NA
+ alpha_intercept[2,3]  0.00   0.00 0.00 0.00   0.00  0.00   NA       NA
+ ess_tail
+      853
+     1636
+      799
+     2064
+     2653
+     2617
+     2175
+     2593
+     2605
+       NA
+     2301
+       NA
+     2124
+     1476
+     1344
+     2551
+     2256
+     2290
+     2365
+     2557
+     2669
+     2731
+     2771
+     2489
+     2551
+     2256
+     2290
+     2365
+     2557
+     2669
+       NA
+       NA
+       NA
+       NA
+       NA
+       NA</code></pre>
+</div>
+</div>
+<p>```</p>
 <p>To dos:</p>
 <ul>
 <li><p>Cholesky formulation for numerical stability (https://mc-stan.org/docs/stan-users-guide/multivariate-hierarchical-priors.html)</p></li>
 <li><p>Non centered formulation for sampling stability (e.g., to reduce divergent transitions)</p></li>
 <li><p>prior predictive checks</p></li>
 </ul>
+</section>
 
 </main>
 <!-- /main column -->

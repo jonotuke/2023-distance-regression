@@ -34,6 +34,23 @@ initial_fit <- initial_model$sample(
 
 print(initial_fit, max_rows = 24)
 ```
+## Cholesky and non-centered form
+
+```{r}
+library(cmdstanr)
+initial_file <- file.path(here::here("stan", "cholesky_initial_model.stan"))
+initial_model <- cmdstan_model(initial_file)
+
+initial_fit <- initial_model$sample(
+  data = data_for_stan,
+  seed = 37733,
+  chains = 4,
+  parallel_chains = 4
+)
+
+print(initial_fit, max_rows = 42)
+```
+```
 
 To dos:
 
