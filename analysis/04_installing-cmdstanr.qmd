@@ -1,0 +1,114 @@
+---
+title: Installing cmdstanr
+author: Jono Tuke
+date: today
+date-format: long
+format: 
+  html: 
+    self-contained: true
+    df-print: tibble
+editor_options: 
+  chunk_output_type: console
+execute: 
+  warning: false
+  message: false
+---
+
+This is based on 
+
+<https://mc-stan.org/cmdstanr/articles/cmdstanr.html>
+
+# Installing cmdstanr and cmdstan
+
+1. Get package `cmdstanr` This is not on CRAN, so use this command
+
+```{r}
+#| eval: false
+install.packages("cmdstanr", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))
+```
+
+2. Load the package
+
+```{r}
+library(cmdstanr)
+```
+
+3. Next, we need `cmdstan`. This needs the c++  and so we can check 
+
+```{r}
+#| eval: false
+check_cmdstan_toolchain()
+```
+
+4. Now we get the `cmdstan`
+
+```{r}
+#| eval: false
+install_cmdstan(cores = 2)
+```
+
+5. The package needs to know where my cmdstan is. We can check with 
+
+```{r}
+cmdstan_path()
+```
+
+and also check the version
+
+```{r}
+cmdstan_version()
+```
+
+Looking good so far. 
+
+# Checking working with a basic example
+
+1. First we set up the model
+
+```{r}
+file <- file.path(cmdstan_path(), "examples", "bernoulli", "bernoulli.stan")
+file
+mod <- cmdstan_model(file)
+mod
+```
+
+2. Now we convert this to an binary with 
+
+```{r}
+mod$exe_file()
+```
+
+3. Next, we set up some data as a list
+
+```{r}
+data_list <- list(
+  N = 10, 
+  y = c(0,1,0,0,0,0,0,0,0,1)
+)
+```
+
+4. Now we perform an MCMC 
+
+```{r}
+fit <- mod$sample(
+  data = data_list, 
+  seed = 123, 
+  chains = 4, 
+  parallel_chains = 4, 
+  refresh = 500
+)
+```
+
+5. Examining the model
+
+```{r}
+fit$summary()
+```
+
+Not sure what `lp__` is - need to ask LK. 
+
+```{r}
+fit$cmdstan_summary()
+```
+
+
