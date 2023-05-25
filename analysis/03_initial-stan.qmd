@@ -20,6 +20,8 @@ data_for_stan <-
       sample_prior = 0)
 ```
 
+## Initial model
+
 ```{r}
 library(cmdstanr)
 initial_file <- file.path(here::here("stan", "initial_stan_model.stan"))
@@ -34,28 +36,117 @@ initial_fit <- initial_model$sample(
 
 print(initial_fit, max_rows = 24)
 ```
+
 ## Cholesky and non-centered form
 
 ```{r}
-library(cmdstanr)
-initial_file <- file.path(here::here("stan", "cholesky_initial_model.stan"))
-initial_model <- cmdstan_model(initial_file)
+cholesky_file <- file.path(here::here("stan", "cholesky_initial_model.stan"))
+cholesky_model <- cmdstan_model(cholesky_file)
 
-initial_fit <- initial_model$sample(
+cholesky_fit <- cholesky_model$sample(
   data = data_for_stan,
   seed = 37733,
   chains = 4,
   parallel_chains = 4
 )
 
-print(initial_fit, max_rows = 42)
+print(cholesky_fit, max_rows = 42)
 ```
+
+## prior predictives
+
+```{r}
+data_for_prior_pred <- 
+  list(
+       n_obs  =3, 
+       G = c(0.91,0.82,1.42),
+       X = c(1,1,sqrt(2)),
+       Z = rbind(c(-1,0,1,0,0,0),
+              c(0,-1,0,0,0,1),
+              c(0,0,1/sqrt(2),-1/sqrt(2), -1/sqrt(2),1/sqrt(2))),
+      sample_prior = 1)
+      
+      
+cholesky_prior_pred <- cholesky_model$sample(
+  data = data_for_prior_pred,
+  seed = 37733,
+  chains = 4,
+  parallel_chains = 4
+)
+
+print(cholesky_prior_pred, max_rows =40)
 ```
+
+Visualization of predicted E[Gij]
+
+```{r}
+library(posterior)
+library(ggplot2)
+library(tidyverse)
+prior_mu_values <- cholesky_prior_pred$draws(variables = c("mu")) %>%
+  as_draws_df() %>%
+  data.frame() %>%
+  janitor::clean_names()
+
+prior_mu_values %>%
+  select(starts_with("mu"))%>%
+  pivot_longer(everything(), values_to = "posterior_sample", 
+               names_to = "parameter") %>%
+  ggplot(., aes(x = 0, y = posterior_sample, fill = parameter))+
+  geom_violin(alpha = .7) + 
+  facet_grid(~parameter) + 
+  ggthemes::scale_fill_colorblind()
+```
+ get rid of the really extreme values
+ 
+```{r}
+prior_mu_values %>%
+  select(starts_with("mu"))%>%
+  pivot_longer(everything(), values_to = "posterior_sample", 
+               names_to = "parameter") %>%
+  ggplot(., aes(x = 0, y = posterior_sample, fill = parameter))+
+  geom_violin(alpha = .7) + 
+  facet_grid(~parameter) + 
+  ggthemes::scale_fill_colorblind() +
+  ylim(c(-10,10))
+```
+ 
+# Alternative priors that are more reasonable for F3 distance
+
+New prior predictive 
+
+```{r}
+cholesky_updated_priors <- file.path(here::here("stan", "cholesky_alt_priors.stan"))
+cholesky_updated_model <- cmdstan_model(cholesky_updated_priors)
+
+cholesky_updated <- cholesky_updated_model$sample(
+  data = data_for_prior_pred,
+  seed = 37733,
+  chains = 4,
+  parallel_chains = 4
+)
+
+print(cholesky_updated, max_rows =40)
+```
+```{r}
+new_prior_mu_values <- cholesky_updated$draws(variables = c("mu")) %>%
+  as_draws_df() %>%
+  data.frame() %>%
+  janitor::clean_names()
+
+new_prior_mu_values %>%
+  select(starts_with("mu"))%>%
+  pivot_longer(everything(), values_to = "posterior_sample", 
+               names_to = "parameter") %>%
+  ggplot(., aes(x = 0, y = posterior_sample, fill = parameter))+
+  geom_violin(alpha = .7) + 
+  facet_grid(~parameter) + 
+  ggthemes::scale_fill_colorblind() +
+  ylim(c(-10,10))
+```
+
+
 
 To dos:
-
--   Cholesky formulation for numerical stability (https://mc-stan.org/docs/stan-users-guide/multivariate-hierarchical-priors.html)
-
--   Non centered formulation for sampling stability (e.g., to reduce divergent transitions)
 
 -   prior predictive checks
