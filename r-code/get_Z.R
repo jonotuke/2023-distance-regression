@@ -10,7 +10,7 @@ get_Z <- function(pts){
   row <- 1
   for(i in 1:(length(pts) - 1)){
     for(j in (i+1):length(pts)){
-      coef <- get_Z_coeff(pts[[i]], pts[[j]])
+      coef <- as.numeric(get_Z_coeff(pts[[i]], pts[[j]]))
       Z[row, 2*i - 1] <- coef[1]
       Z[row, 2*i] <- coef[2]
       Z[row, 2*j - 1] <- -coef[1]
@@ -20,7 +20,10 @@ get_Z <- function(pts){
   }
   Z
 }
-#
+get_Z_df <- function(df){
+  split(df, seq(nrow(df))) |> get_Z()
+}
+# pacman::p_load(tidyverse, targets)
 # pts <- list(
 #   x1 = c(0,0),
 #   x2 = c(1,0),
@@ -28,3 +31,8 @@ get_Z <- function(pts){
 # )
 # get_Z_coeff(x1 = pts$x1, x2 = pts$x2)
 # get_Z(pts)
+# df <- tibble(
+#   x1 = c(0,1,0),
+#   x2 = c(0,0,1)
+# )
+# get_Z_df(df)

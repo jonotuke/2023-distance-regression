@@ -28,3 +28,4 @@ sims$pts |>
 sims$dist |>
   ggplot(aes(Dij, Gij)) +
   geom_point()
+
