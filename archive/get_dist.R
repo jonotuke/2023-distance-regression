@@ -25,3 +25,4 @@ get_dist_df <- function(df){
 #   c(0,0,1)
 # )
 # get_dist_df(pts)
+
