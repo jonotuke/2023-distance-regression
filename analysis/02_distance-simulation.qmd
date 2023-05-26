@@ -16,6 +16,7 @@ execute:
 
 ```{r, setup}
 pacman::p_load(tidyverse)
+theme_set(theme_bw())
 ```
 
 # Outline
@@ -28,7 +29,7 @@ $$
 
 that is based on the Taylor series expansion.
 
-We will simulate both method and compare the results. For the simulations we consider the following parameters
+We will simulate both methods and compare the results. For the simulations we consider the following parameters
 
 $$
 X_i \sim U(0,10) \times U(0,10), 
@@ -45,9 +46,38 @@ where
 
 $$
 \Sigma = 
-
 \begin{bmatrix}
 \sigma^2_a & 0\\
 0 & \sigma^2_a
 \end{bmatrix}
 $$
+## Example simulation
+
+To illustrate, we have a single simulation which is plotted in @fig-sim-sp. The blue points are the simulated $X$ points, while the brown points are the simulated $Y$ points. As $\beta = 1$, we are just observing the noise added by the $\boldsymbol{a}$ terms. 
+
+```{r}
+fs::dir_ls(here::here('r-code')) |> walk(source)
+set.seed(2023)
+sims <- simulate_distances(n_pts = 100, sigma_b = 1, beta = 1)
+```
+
+
+```{r}
+#| fig-cap: Scatterplot of points before and after translation. 
+#| label: fig-sim-sp
+sims$pts |>
+  ggplot(aes(X1, X2)) +
+  geom_point(aes(fill = "X"), pch = 21) +
+  geom_point(aes(Y1, Y2, fill = "Y"), pch = 21) +
+  geom_segment(aes(x = X1, xend = Y1, y = X2, yend = Y2)) + 
+  harrypotter::scale_fill_hp_d("Ravenclaw")
+```
+
+```{r}
+sims$dist |> 
+  ggplot(aes(Dij, Gij_hat, col = Dij)) + 
+  geom_point()
+```
+
+
+

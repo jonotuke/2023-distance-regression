@@ -1,4 +1,4 @@
-get_linear_model_gij <- function(X, beta, a){
+get_linear_model_gij <- function(X, beta, a, Dij){
   if(is.data.frame(X)){
     Z <- get_Z_df(X)
   } else {
@@ -9,7 +9,8 @@ get_linear_model_gij <- function(X, beta, a){
   } else {
     b <- get_b(a)
   }
-  Gij <- Dij * 1 + Z %*% b
+  Gij <- Dij * beta + Z %*% b
+  Gij <- as.numeric(Gij)
   Gij
 }
 # X <- list(
@@ -30,5 +31,6 @@ get_linear_model_gij <- function(X, beta, a){
 #   a1 = c(0.1, 0, -0.1),
 #   a2 = c(0.1, 0, -0.1)
 # )
-# get_linear_model_gij(X, beta = 1, a)
-# get_linear_model_gij(X_df, beta = 1, a_df)
+# Dij <- get_dist(X)
+# get_linear_model_gij(X, beta = 1, a, Dij)
+# get_linear_model_gij(X_df, beta = 1, a_df, Dij)
