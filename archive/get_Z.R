@@ -23,16 +23,19 @@ get_Z <- function(pts){
 get_Z_df <- function(df){
   split(df, seq(nrow(df))) |> get_Z()
 }
-# pacman::p_load(tidyverse, targets)
-# pts <- list(
-#   x1 = c(0,0),
-#   x2 = c(1,0),
-#   x3 = c(0,1)
-# )
-# get_Z_coeff(x1 = pts$x1, x2 = pts$x2)
-# get_Z(pts)
-# df <- tibble(
-#   x1 = c(0,1,0),
-#   x2 = c(0,0,1)
-# )
-# get_Z_df(df)
+pacman::p_load(tidyverse, targets)
+pts <- list(
+  x1 = c(0,0),
+  x2 = c(1,0),
+  x3 = c(0,1)
+)
+get_Z_coeff(x1 = pts$x1, x2 = pts$x2)
+get_Z_coeff(x1 = pts$x1, x2 = pts$x3)
+get_Z_coeff(x1 = pts$x2, x2 = pts$x3)
+get_Z(pts)
+df <- tibble(
+  x1 = c(0,1,0),
+  x2 = c(0,0,1)
+)
+
+get_Z_df(df)
