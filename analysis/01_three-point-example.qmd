@@ -19,38 +19,42 @@ execute:
 ```{r, setup}
 pacman::p_load(tidyverse)
 fs::dir_ls(here::here("r-code")) |> walk(source)
-Rcpp::sourceCpp(here::here("c-code", "get_dist.cpp"))
+fs::dir_ls(here::here("c-code")) |> 
+  walk(Rcpp::sourceCpp, embeddedR= FALSE)
 ```
 
 # Set up points
 
 ```{r}
-x <- tibble(
-  x1 = c(0,1,0),
-  x2 = c(0,0,1)
+X <- matrix(
+  c(
+    0, 0, 
+    1, 0, 
+    0, 1
+  ), ncol = 2, byrow = TRUE
 )
-a <- tibble(
-  a1 = c(0.1, 0, -0.1),
-  a2 = c(0.1, 0, -0.1)
+a <- matrix(
+  c(
+    0.1, 0.1, 
+    0, 0, 
+    -0.1, -0.1
+  ), ncol = 2, byrow = TRUE
 )
 ```
 
 Calculate Y.
 
 ```{r}
-y <- tibble(
-  y1 = 1 + 1 * x$x1 + a$a1,
-  y2 = 1 + 1 * x$x2 + a$a2
-)
-y
+Y <- 1 + X + a
+Y
 ```
 
 So we have the distances between the x points and also those computed by the linear transform of the x to give the y points.
 
 ```{r}
-Dij <- cpp_get_dist(x$x1, x$x2)
+Dij <- cpp_get_dist(X)
 Dij
-Gij <- cpp_get_dist(y$y1, y$y2)
+Gij <- cpp_get_dist(Y)
 Gij
 ```
 
@@ -63,11 +67,7 @@ $$
 So we have
 
 ```{r}
-Z <- get_Z(x)
-Z
-b <- a |> list_c()
-b
-Dij * 1 + Z %*% b
+get_linear_model_gij(X, beta = 1, a = a)
 ```
 
 So the approximation works well.
