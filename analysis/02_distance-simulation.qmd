@@ -24,7 +24,7 @@ theme_set(theme_bw())
 We have two possible ways to get the distances between the $y_i$ points. In the first way, we translate the $x_i$ points with noise: $a_i$, and then calculate the distances between the $x_i$, denoted $D_{ij}$ and then the distances between the $y_i$, denoted $G_{ij}$. In the second method, we use the mixed effects model:
 
 $$
-\hat{G}_{ij} = \E[G_{ij}] = \beta D_{ij} + Z\boldsymbol{a}, 
+LMG_{ij} = \E[G_{ij}] = \beta D_{ij} + Z\boldsymbol{a}, 
 $$
 
 that is based on the Taylor series expansion.
@@ -32,7 +32,7 @@ that is based on the Taylor series expansion.
 We will simulate both methods and compare the results. For the simulations we consider the following parameters
 
 $$
-X_i \sim U(0,10) \times U(0,10), 
+X_i \sim U(0,1) \times U(0,1), 
 $$
 
 $$
@@ -57,15 +57,19 @@ To illustrate, we have a single simulation which is plotted in @fig-sim-sp. The 
 
 ```{r}
 fs::dir_ls(here::here('r-code')) |> walk(source)
+fs::dir_ls(here::here('c-code')) |> walk(Rcpp::sourceCpp)
 set.seed(2023)
-sims <- simulate_distances(n_pts = 100, sigma_b = 1, beta = 1)
+sims <- simulate_distances(n_pts = 100, sigma_b = 0.1, beta = 1)
+glimpse(sims)
 ```
 
+For this simulation, we compare the two distance measures between the $y_i$ points (@fig-gij-sp). We see that for large values of $D_{ij}$ we see a strong correlation between the LMGij and Gij, but for small values of D_{ij}$ we see that the $a_i$ term dominates leading to a lack of correlation, and also the possibility of negative distances in LMGij. 
 
 ```{r}
 #| fig-cap: Scatterplot of points before and after translation. 
 #| label: fig-sim-sp
-sims$pts |>
+sims$X |> as_tibble() |>
+  bind_cols(sims$Y) |>
   ggplot(aes(X1, X2)) +
   geom_point(aes(fill = "X"), pch = 21) +
   geom_point(aes(Y1, Y2, fill = "Y"), pch = 21) +
@@ -74,9 +78,17 @@ sims$pts |>
 ```
 
 ```{r}
-sims$dist |> 
-  ggplot(aes(Dij, Gij_hat, col = Dij)) + 
-  geom_point()
+#| fig-cap: Scatterplot of LMGij compared to Gij. 
+#| label: fig-gij-sp
+tibble(
+  Gij = sims$Gij,
+  LMGij = sims$LMGij,
+  Dij = sims$Dij
+) |>
+  ggplot(aes(Gij, LMGij, col = cut(Dij, breaks = c(0, 1/3*sqrt(2), 2/3*sqrt(2), sqrt(2))))) +
+  geom_point() + 
+  labs(col = "Dij") + 
+  harrypotter::scale_colour_hp_d("Ravenclaw")
 ```
 
 

@@ -24,24 +24,24 @@ simulate_distances <- function(n_pts, sigma_b, beta){
   lst$LMGij <- LMGij
   return(lst)
 }
-pacman::p_load(tidyverse, targets)
-fs::dir_ls("c-code/") |> walk(Rcpp::sourceCpp)
-source("r-code/get_linear_model_gij.R")
-sims <- simulate_distances(
-  n_pts = 200,
-  sigma_b = 0.01, beta = 1
-)
-sims$X |> as_tibble() |>
-  bind_cols(sims$Y) |>
-  ggplot(aes(X1, X2)) +
-  geom_point(aes(fill = "X"), pch = 21) +
-  geom_point(aes(Y1, Y2, fill = "Y"), pch = 21) +
-  geom_segment(aes(x = X1, xend = Y1, y = X2, yend = Y2))
-
-tibble(
-  Gij = sims$Gij,
-  LMGij = sims$LMGij,
-  Dij = sims$Dij
-) |>
-  ggplot(aes(Gij, LMGij, col = cut(Dij, 3))) +
-  geom_point()
+# pacman::p_load(tidyverse, targets)
+# fs::dir_ls("c-code/") |> walk(Rcpp::sourceCpp)
+# source("r-code/get_linear_model_gij.R")
+# sims <- simulate_distances(
+#   n_pts = 200,
+#   sigma_b = 0.01, beta = 1
+# )
+# sims$X |> as_tibble() |>
+#   bind_cols(sims$Y) |>
+#   ggplot(aes(X1, X2)) +
+#   geom_point(aes(fill = "X"), pch = 21) +
+#   geom_point(aes(Y1, Y2, fill = "Y"), pch = 21) +
+#   geom_segment(aes(x = X1, xend = Y1, y = X2, yend = Y2))
+#
+# tibble(
+#   Gij = sims$Gij,
+#   LMGij = sims$LMGij,
+#   Dij = sims$Dij
+# ) |>
+#   ggplot(aes(Gij, LMGij, col = cut(Dij, breaks = c(0, 1/sqrt(2), sqrt(2))))) +
+#   geom_point()
