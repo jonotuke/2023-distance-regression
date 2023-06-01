@@ -51,6 +51,7 @@ $$
 0 & \sigma^2_a
 \end{bmatrix}
 $$
+
 ## Example simulation
 
 To illustrate, we have a single simulation which is plotted in @fig-sim-sp. The blue points are the simulated $X$ points, while the brown points are the simulated $Y$ points. As $\beta = 1$, we are just observing the noise added by the $\boldsymbol{a}$ terms. 
@@ -89,6 +90,30 @@ tibble(
   geom_point() + 
   labs(col = "Dij") + 
   harrypotter::scale_colour_hp_d("Ravenclaw")
+```
+
+```{r}
+sim_correlations <- read_rds(
+  here::here("data", "sim_correlations.rds")
+)
+```
+
+```{r}
+#| fig-cap: Correlation between gij and lmgij for given ratio of standard deviation of noise term compared to points
+#| label: fig-corr-sp
+sim_correlations |>
+  group_by(sigma_b) |>
+  summarise(
+    mean = mean(r),
+    lwr = quantile(r, 0.1),
+    upr = quantile(r, 0.9)
+    ) |>
+  ggplot(aes(sigma_b/sqrt(1/12), mean)) +
+  geom_point() +
+  geom_errorbar(aes(ymin = lwr, ymax = upr)) +
+  scale_x_continuous(breaks = 0:10) +
+  labs(x = expression(sigma[b]/sigma[x]))
+
 ```
 
 

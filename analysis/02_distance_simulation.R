@@ -25,15 +25,5 @@ df <- df %>%
     ),
     r = cor(dist$Gij, dist$LMGij)
   )
-df |>
-  group_by(sigma_b) |>
-  summarise(
-    mean = mean(r),
-    lwr = quantile(r, 0.1),
-    upr = quantile(r, 0.9)
-    ) |>
-  ggplot(aes(sigma_b/sqrt(1/12), mean)) +
-  geom_point() +
-  geom_errorbar(aes(ymin = lwr, ymax = upr)) +
-  scale_x_continuous(breaks = 0:10) +
-  labs(x = expression(sigma[b]/sigma[x]))
+df <- df |> select(sigma_b, sim, r)
+write_rds(df, here::here("data", "sim_correlations.rds"))
