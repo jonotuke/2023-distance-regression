@@ -79,7 +79,7 @@ cholesky_prior_pred <- cholesky_model$sample(
 print(cholesky_prior_pred, max_rows =40)
 ```
 
-Visualization of predicted E[Gij]
+Visualization of predicted E\[Gij\]
 
 ```{r}
 library(posterior)
@@ -99,8 +99,9 @@ prior_mu_values %>%
   facet_grid(~parameter) + 
   ggthemes::scale_fill_colorblind()
 ```
- get rid of the really extreme values
- 
+
+get rid of the really extreme values
+
 ```{r}
 prior_mu_values %>%
   select(starts_with("mu"))%>%
@@ -112,10 +113,10 @@ prior_mu_values %>%
   ggthemes::scale_fill_colorblind() +
   ylim(c(-10,10))
 ```
- 
+
 # Alternative priors that are more reasonable for F3 distance
 
-New prior predictive 
+New prior predictive
 
 ```{r}
 cholesky_updated_priors <- file.path(here::here("stan", "cholesky_alt_priors.stan"))
@@ -130,6 +131,7 @@ cholesky_updated <- cholesky_updated_model$sample(
 
 print(cholesky_updated, max_rows =40)
 ```
+
 ```{r}
 new_prior_mu_values <- cholesky_updated$draws(variables = c("mu")) %>%
   as_draws_df() %>%
@@ -146,8 +148,6 @@ new_prior_mu_values %>%
   ggthemes::scale_fill_colorblind() +
   ylim(c(-10,10))
 ```
-
-
 
 To dos:
 

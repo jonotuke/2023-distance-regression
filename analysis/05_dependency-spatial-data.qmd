@@ -1,0 +1,59 @@
+---
+title: Dependency in spatial data
+author: Jono Tuke
+date: today
+date-format: long
+format: 
+  html: 
+    self-contained: true
+    df-print: tibble
+editor_options: 
+  chunk_output_type: console
+execute: 
+  warning: false
+  message: false
+---
+
+# Set-up
+
+```{r, setup}
+pacman::p_load(tidyverse)
+fs::dir_ls(here::here("r-code")) |> walk(source)
+fs::dir_ls(here::here("c-code")) |> walk(Rcpp::sourceCpp,embeddedR = FALSE)
+```
+
+# 
+
+```{r}
+n_pts <- 200
+pts <- matrix(runif(2*n_pts), ncol = 2)
+dist <- expand_grid(i = 1:n_pts, j = 1:n_pts) |> 
+  filter(j > i)
+dist$Dij <- cpp_get_dist(pts)
+```
+
+```{r}
+triangles <- expand_grid(
+  i = 1:n_pts,
+  j = 1:n_pts,
+  k = 1:n_pts
+)
+triangles <- 
+  triangles |> 
+  filter(j > i, k > j) |> 
+  left_join(dist, by = c('i' = 'i', 'j' = 'j')) |> 
+  left_join(dist, by = c('i' = 'i', 'k' = 'j')) |> 
+  left_join(dist, by = c('j' = 'i', 'k' = 'j')) |> 
+  rename(Dij = Dij.x, Dik = Dij.y, Djk = Dij) 
+triangles |> 
+  ggplot(aes(Dij, Dik, fill = cut(Djk, 10))) + 
+  geom_hex(col = "grey80")
+```
+
+```{r}
+summary(lm(Djk ~ Dij + Dik, data = triangles))
+gglm::gglm(lm(Djk ~ Dij + Dik, data = triangles))
+```
+
+
+
