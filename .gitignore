@@ -55,4 +55,4 @@ po/*~
 rsconnect/
 
 # raw data ignore
-raw_data/*
+raw-data/*
